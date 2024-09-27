@@ -1,0 +1,55 @@
+### testing api call
+
+### User
+### Get user
+GET http://localhost:8000/api/v1/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYS5jb20iLCJpYXQiOjE3MjY5ODIwMTUsImV4cCI6MTcyNjk4MjA3NX0.y8suUGvKWse6cnhleUSORYRthAIF6brBTN7torAwt2I
+
+### Post new user
+POST  http://localhost:8000/api/v1/users
+Content-Type: application/json
+
+{
+    "name": "Prem",
+    "email": "a@a.com",
+     "password": "123" 
+}
+
+
+### Login user
+POST  http://localhost:8000/api/v1/users/login
+Content-Type: application/json
+
+{
+    "email": "a@a.com",
+     "password": "11111" 
+}
+ 
+
+
+### Transactions: all private routers
+
+### Post new transaction
+POST http://localhost:8000/api/v1/transactions
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYS5jb20iLCJpYXQiOjE3MjY5OTY1MTIsImV4cCI6MTcyNzA4MjkxMn0.CO_pBLdba2ID3Vu2ykQYxUODCIT6mALdLwmafi86gLM
+
+{
+      "type": "income",
+    "title": "Salary",
+    "amount": "255",
+    "tDate": "02-24-2024" 
+}
+
+### Get all transactions for the specific user
+GET http://localhost:8000/api/v1/transactions
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYS5jb20iLCJpYXQiOjE3MjczMjM0MTMsImV4cCI6MTcyNzQwOTgxM30.6hI8wg-Zwq4EsDg0hXy12KuSzTnkUnpaWA1yHIA0tFk
+
+
+### Delete transactions for a specific user
+DELETE http://localhost:8000/api/v1/transactions
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFAYS5jb20iLCJpYXQiOjE3MjczMjM0MTMsImV4cCI6MTcyNzQwOTgxM30.6hI8wg-Zwq4EsDg0hXy12KuSzTnkUnpaWA1yHIA0tFk
+
+
+["66efe834b7187371ca14357a", "66efefc2970be7ad62bdad94" ]
