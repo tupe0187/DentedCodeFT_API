@@ -15,6 +15,7 @@ app.use(cors());
 import userRouter from "./routers/userRouter.js";
 import transactionRouter from "./routers/transactionRouter.js";
 import { auth } from "./middlewares/authMiddleware.js";
+import { errorHandler } from "./middlewares/errorHandlerMiddleware.js";
 
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/transactions", auth, transactionRouter);
@@ -24,6 +25,16 @@ app.get("/", (req, res) => {
     message: "It's Live",
   });
 });
+
+// 404 page not found
+app.use((req, res, next) => {
+  const error = new Error("Not Found");
+  error.statusCode = 404;
+  next(error);
+});
+
+// Global error handler
+app.use(errorHandler);
 
 app.listen(PORT, (error) => {
   error
